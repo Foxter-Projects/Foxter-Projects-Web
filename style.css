@@ -21,6 +21,10 @@ header {
   background-color: #1f2937;
   color: white;
   padding: 1rem;
+  position: sticky; /* Sticky header */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .header-container {
   display: flex;
@@ -54,7 +58,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  background-image: url('Images/foxterprojectsweb-coverimg.png'); /* replace with your hero image */
+  background-image: url('Images/foxterprojectsweb-coverimg.png'); /* your hero image */
   background-size: cover;
   background-position: center;
   height: 60vh;
@@ -69,7 +73,7 @@ nav a:hover {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.5); /* overlay for readability */
 }
 .hero-text {
   position: relative;
@@ -150,6 +154,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
+
 @media (max-width: 600px) {
   nav {
     display: none;
@@ -171,5 +176,12 @@ footer {
   }
   header h1 {
     font-size: 1.2rem;
+  }
+}
+
+/* Extra: Taller hero on big screens */
+@media(min-width: 1200px){
+  .hero {
+    height: 80vh;
   }
 }

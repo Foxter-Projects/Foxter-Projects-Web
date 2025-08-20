@@ -23,17 +23,48 @@
   <main>
     <section class="games-grid">
       <h2>All Games</h2>
+
+      <!-- Search Bar -->
+      <input type="text" id="game-search" placeholder="Search games..." style="width:100%;max-width:400px;margin:0 auto;display:block;padding:0.5rem 1rem;border-radius:5px;border:1px solid #ccc;">
+
       <div class="game-cards">
+
         <div class="game-card">
           <img src="thumbnail1.png" alt="Game 1">
           <h3>Game Title 1</h3>
           <a href="https://your-github-page-game1/" target="_blank" class="play-btn">Play Now</a>
         </div>
+        
         <div class="game-card">
           <img src="thumbnail2.png" alt="Game 2">
           <h3>Game Title 2</h3>
           <a href="https://your-github-page-game2/" target="_blank" class="play-btn">Play Now</a>
         </div>
+        
+        <div class="game-card">
+          <img src="thumbnail3.png" alt="Game 3">
+          <h3>Game Title 3</h3>
+          <a href="https://your-github-page-game3/" target="_blank" class="play-btn">Play Now</a>
+        </div>
+        
+        <div class="game-card">
+          <img src="thumbnail4.png" alt="Game 4">
+          <h3>Game Title 4</h3>
+          <a href="https://your-github-page-game4/" target="_blank" class="play-btn">Play Now</a>
+        </div>
+        
+        <div class="game-card">
+          <img src="thumbnail5.png" alt="Game 5">
+          <h3>Game Title 5</h3>
+          <a href="https://your-github-page-game5/" target="_blank" class="play-btn">Play Now</a>
+        </div>
+        
+        <div class="game-card">
+          <img src="thumbnail6.png" alt="Game 6">
+          <h3>Game Title 6</h3>
+          <a href="https://your-github-page-game6/" target="_blank" class="play-btn">Play Now</a>
+        </div>
+
       </div>
     </section>
   </main>
@@ -43,5 +74,23 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Mobile hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('game-search');
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      document.querySelectorAll('.game-card').forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        card.style.display = title.includes(filter) ? '' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
