@@ -25,42 +25,45 @@
       <h2>All Games</h2>
 
       <!-- Search Bar -->
-      <input type="text" id="game-search" placeholder="Search games..." style="width:100%;max-width:400px;margin:0 auto;display:block;padding:0.5rem 1rem;border-radius:5px;border:1px solid #ccc;">
+      <input type="text" id="game-search" placeholder="Search games...">
+
+      <!-- No results message -->
+      <p id="no-results" style="display:none; text-align:center; margin-top:1rem;">No games found.</p>
 
       <div class="game-cards">
 
         <div class="game-card">
-          <img src="thumbnail1.png" alt="Game 1">
+          <img src="Images/testthumbnail.png" alt="Game 1">
           <h3>Game Title 1</h3>
           <a href="https://your-github-page-game1/" target="_blank" class="play-btn">Play Now</a>
         </div>
         
         <div class="game-card">
-          <img src="thumbnail2.png" alt="Game 2">
+          <img src="Images/testthumbnail.png" alt="Game 2">
           <h3>Game Title 2</h3>
           <a href="https://your-github-page-game2/" target="_blank" class="play-btn">Play Now</a>
         </div>
         
         <div class="game-card">
-          <img src="thumbnail3.png" alt="Game 3">
+          <img src="Images/testthumbnail.png" alt="Game 3">
           <h3>Game Title 3</h3>
           <a href="https://your-github-page-game3/" target="_blank" class="play-btn">Play Now</a>
         </div>
         
         <div class="game-card">
-          <img src="thumbnail4.png" alt="Game 4">
+          <img src="Images/testthumbnail.png" alt="Game 4">
           <h3>Game Title 4</h3>
           <a href="https://your-github-page-game4/" target="_blank" class="play-btn">Play Now</a>
         </div>
         
         <div class="game-card">
-          <img src="thumbnail5.png" alt="Game 5">
+          <img src="Images/testthumbnail.png" alt="Game 5">
           <h3>Game Title 5</h3>
           <a href="https://your-github-page-game5/" target="_blank" class="play-btn">Play Now</a>
         </div>
         
         <div class="game-card">
-          <img src="thumbnail6.png" alt="Game 6">
+          <img src="Images/testthumbnail.png" alt="Game 6">
           <h3>Game Title 6</h3>
           <a href="https://your-github-page-game6/" target="_blank" class="play-btn">Play Now</a>
         </div>
@@ -82,14 +85,19 @@
       navLinks.classList.toggle('show');
     });
 
-    // Search functionality
+    // Search functionality with "No results"
     const searchInput = document.getElementById('game-search');
+    const noResults = document.getElementById('no-results');
     searchInput.addEventListener('input', () => {
       const filter = searchInput.value.toLowerCase();
+      let hasResults = false;
       document.querySelectorAll('.game-card').forEach(card => {
         const title = card.querySelector('h3').textContent.toLowerCase();
-        card.style.display = title.includes(filter) ? '' : 'none';
+        const show = title.includes(filter);
+        card.style.display = show ? '' : 'none';
+        if (show) hasResults = true;
       });
+      noResults.style.display = hasResults ? 'none' : 'block';
     });
   </script>
 </body>
