@@ -35,17 +35,22 @@
       <h2>Featured Games</h2>
       <div class="game-cards">
         <div class="game-card">
-          <img src="thumbnail1.png" alt="Game 1">
+          <img src="Images/testthumbnail.png" alt="Game 1">
           <h3>Game Title 1</h3>
           <p>Short description of the game.</p>
           <a href="https://your-github-page-game1/" target="_blank" class="play-btn">Play Now</a>
         </div>
         <div class="game-card">
-          <img src="thumbnail2.png" alt="Game 2">
+          <img src="Images/testthumbnail.png" alt="Game 2">
           <h3>Game Title 2</h3>
           <p>Short description of the game.</p>
           <a href="https://your-github-page-game2/" target="_blank" class="play-btn">Play Now</a>
         </div>
+      </div>
+
+      <!-- View All Games Button -->
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="games.html" class="play-btn">View All Games</a>
       </div>
     </section>
   </main>
@@ -55,5 +60,13 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Mobile hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
